@@ -1,0 +1,12 @@
+requests
+cfonts
+pycryptodome
+Pillow
+colorama
+readline
+pyreadline3
+flask==3.0.0
+flask-cors==4.0.0
+werkzeug==3.0.1
+Jinja2==3.1.2
+MarkupSafe==2.1.3

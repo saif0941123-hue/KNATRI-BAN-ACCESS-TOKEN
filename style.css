@@ -1,0 +1,352 @@
+/* KNA TRI - BAN Tool Web Interface */
+:root {
+  --bg-dark: #0a0e17;
+  --bg-panel: #121826;
+  --bg-card: #1a2030;
+  --accent-cyan: #00f0ff;
+  --accent-green: #00ff88;
+  --accent-red: #ff3b5c;
+  --accent-yellow: #ffd700;
+  --text-white: #e8edf5;
+  --text-dim: #7a8699;
+  --border-glow: rgba(0, 240, 255, 0.3);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', 'Cairo', Tahoma, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(0, 240, 255, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(255, 59, 92, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.04) 0%, transparent 50%);
+}
+
+/* Animated grid background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header / Banner */
+.header {
+  text-align: center;
+  padding: 30px 10px 20px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green), var(--accent-cyan));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shine 3s linear infinite;
+  text-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--accent-red);
+  letter-spacing: 3px;
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+.tagline {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 6px;
+  letter-spacing: 1px;
+}
+
+.divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  margin: 15px 0;
+  border: none;
+}
+
+/* Panel / Card */
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-glow);
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.1), inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.panel-title {
+  font-size: 16px;
+  color: var(--accent-cyan);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.panel-title::before {
+  content: '◆';
+  color: var(--accent-green);
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+input[type="text"], input[type="password"], textarea {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: var(--text-white);
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Buttons */
+.btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--accent-cyan), #0099cc);
+  color: var(--bg-dark);
+  box-shadow: 0 4px 20px rgba(0, 240, 255, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 240, 255, 0.5);
+}
+
+.btn-danger {
+  background: linear-gradient(90deg, var(--accent-red), #cc1f3a);
+  color: white;
+  box-shadow: 0 4px 20px rgba(255, 59, 92, 0.3);
+}
+
+.btn-danger:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(255, 59, 92, 0.5);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Status / Messages */
+.message {
+  padding: 14px;
+  border-radius: 8px;
+  margin: 15px 0;
+  font-size: 13px;
+  display: none;
+}
+
+.message.show { display: block; }
+
+.message-success {
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid var(--accent-green);
+  color: var(--accent-green);
+}
+
+.message-error {
+  background: rgba(255, 59, 92, 0.1);
+  border: 1px solid var(--accent-red);
+  color: var(--accent-red);
+}
+
+.message-info {
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+/* Result Display */
+.result-box {
+  background: var(--bg-card);
+  border: 1px solid var(--accent-green);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px 0;
+  display: none;
+}
+
+.result-box.show { display: block; }
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 14px;
+}
+
+.result-item:last-child { border-bottom: none; }
+
+.result-label {
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+.result-value {
+  color: var(--text-white);
+  font-weight: 700;
+}
+
+.result-status {
+  color: var(--accent-red);
+  font-weight: 900;
+  font-size: 16px;
+}
+
+/* Loader */
+.loader-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-card);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 15px 0;
+  display: none;
+}
+
+.loader-bar.show { display: block; }
+
+.loader-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+  width: 0%;
+  transition: width 0.3s ease;
+  border-radius: 3px;
+}
+
+.loader-text {
+  text-align: center;
+  font-size: 12px;
+  color: var(--accent-cyan);
+  letter-spacing: 2px;
+}
+
+/* Telegram / Footer */
+.telegram-box {
+  text-align: center;
+  padding: 20px;
+  background: var(--bg-panel);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.telegram-box a {
+  display: inline-block;
+  background: linear-gradient(90deg, #2aabee, #229ed9);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(42, 171, 238, 0.3);
+}
+
+.telegram-box a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(42, 171, 238, 0.5);
+}
+
+.dev-info {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 12px;
+  letter-spacing: 1px;
+}
+
+.dev-info span {
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
+/* Timer */
+.session-timer {
+  text-align: center;
+  font-size: 13px;
+  color: var(--accent-yellow);
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+/* Hidden sections */
+.hidden { display: none !important; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .logo { font-size: 32px; }
+  .container { padding: 10px; }
+  .panel { padding: 18px; }
+}

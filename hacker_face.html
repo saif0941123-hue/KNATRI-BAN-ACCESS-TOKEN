@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 ＫＮＡＴＲＩ ＨＡＣＫＥＲ 🎮</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: #0a0a0a;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" fill="%23ff0044" stroke="%2300ff88" stroke-width="2"/></svg>'), auto;
+        }
+
+        /* Matrix Rain Effect */
+        #matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.2;
+        }
+
+        /* Cyber Lines */
+        .cyber-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, transparent 98%, rgba(0, 255, 136, 0.03) 98.5%, transparent 99%),
+                linear-gradient(0deg, transparent 98%, rgba(0, 255, 136, 0.03) 98.5%, transparent 99%);
+            background-size: 50px 50px;
+            z-index: 1;
+            animation: gridMove 15s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Particle Effect */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ff0044;
+            border-radius: 50%;
+            animation: float 20s infinite;
+            box-shadow: 0 0 10px #ff0044;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: headerPulse 2s ease-in-out infinite;
+        }
+
+        .logo {
+            font-size: 120px;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff0044, #ff0088, #00ff88, #00ffff, #ff0044);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientMove 3s ease infinite;
+            text-shadow: 0 0 50px rgba(255, 0, 68, 0.3);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 15px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #00ff88;
+            margin-top: 20px;
+            letter-spacing: 15px;
+            text-transform: uppercase;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: #ff0044;
+            margin-top: 10px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes headerPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 30px #00ff88; }
+            to { text-shadow: 0 0 20px #00ff88, 0 0 30px #00ff88, 0 0 40px #00ff88, 0 0 50px #00ff88; }
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+
+        /* Login Box */
+        .login-box {
+            background: rgba(10, 10, 20, 0.95);
+            border: 3px solid transparent;
+            padding: 50px 60px;
+            border-radius: 20px;
+            box-shadow: 
+                0 0 60px rgba(255, 0, 68, 0.4),
+                0 0 100px rgba(0, 255, 136, 0.2),
+                inset 0 0 60px rgba(255, 0, 68, 0.1);
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+            background-clip: padding-box;
+            animation: boxPulse 4s ease-in-out infinite;
+        }
+
+        .login-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background: linear-gradient(45deg, #ff0044, #00ff88, #00ffff, #ff0044);
+            background-size: 400% 400%;
+            animation: borderGlow 3s linear infinite;
+            border-radius: 20px;
+            opacity: 0.8;
+        }
+
+        @keyframes boxPulse {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Corner Decorations */
+        .corner {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 4px solid #00ff88;
+            animation: cornerPulse 1.5s infinite;
+            box-shadow: 0 0 20px #00ff88;
+        }
+
+        .corner-tl { top: 10px; left: 10px; border-right: none; border-bottom: none; border-radius: 5px 0 0 0; }
+        .corner-tr { top: 10px; right: 10px; border-left: none; border-bottom: none; border-radius: 0 5px 0 0; }
+        .corner-bl { bottom: 10px; left: 10px; border-right: none; border-top: none; border-radius: 0 0 0 5px; }
+        .corner-br { bottom: 10px; right: 10px; border-left: none; border-top: none; border-radius: 0 0 5px 0; }
+
+        @keyframes cornerPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.9); }
+        }
+
+        /* Input Group */
+        .input-group {
+            margin-bottom: 35px;
+        }
+
+        .input-label {
+            display: block;
+            color: #ff0044;
+            font-size: 14px;
+            margin-bottom: 15px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 18px 25px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #ff0044;
+            color: #00ff88;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            letter-spacing: 4px;
+            transition: all 0.4s;
+            border-radius: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .input-field::placeholder {
+            color: rgba(0, 255, 136, 0.3);
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #00ff88;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5), inset 0 0 20px rgba(0, 255, 136, 0.1);
+            transform: scale(1.02);
+        }
+
+        .input-field:focus::placeholder {
+            color: transparent;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff0044, #cc0036);
+            border: none;
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 8px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+            text-transform: uppercase;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(255, 0, 68, 0.5);
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            box-shadow: 0 15px 50px rgba(0, 255, 136, 0.7);
+            transform: translateY(-5px) scale(1.05);
+            color: #000000;
+        }
+
+        .submit-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shine 2s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            50%, 100% { left: 100%; }
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 2px solid rgba(255, 0, 68, 0.3);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            min-width: 100px;
+            transition: all 0.3s;
+        }
+
+        .stat-item:hover {
+            background: rgba(255, 0, 68, 0.2);
+            transform: scale(1.1);
+        }
+
+        .stat-value {
+            font-size: 28px;
+            color: #00ff88;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 20px #00ff88;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #ff0044;
+            margin-top: 8px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            display: none;
+            width: 100%;
+            max-width: 1400px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .dashboard.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px;
+            background: rgba(10, 10, 20, 0.95);
+            border: 3px solid transparent;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            background-clip: padding-box;
+            animation: headerFloat 3s ease-in-out infinite;
+        }
+
+        .dashboard-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background: linear-gradient(45deg, #ff0044, #00ff88);
+            background-size: 200% 200%;
+            animation: borderGlow 3s linear infinite;
+            border-radius: 20px;
+            opacity: 0.6;
+        }
+
+        @keyframes headerFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .dashboard-title {
+            font-size: 36px;
+            color: #ffffff;
+            font-weight: 700;
+            text-shadow: 0 0 20px #ff0044;
+            letter-spacing: 8px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .logout-btn {
+            background: linear-gradient(135deg, #ff0044, #cc0036);
+            border: none;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(255, 0, 68, 0.5);
+        }
+
+        .logout-btn:hover {
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .dashboard-card {
+            background: rgba(10, 10, 20, 0.95);
+            border: 2px solid rgba(255, 0, 68, 0.3);
+            padding: 35px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            transition: all 0.4s;
+            animation: cardFloat 6s ease-in-out infinite;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(255, 0, 68, 0.4);
+            border-color: #00ff88;
+        }
+
+        .dashboard-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #ff0044, #00ff88);
+            animation: cardGlow 2s linear infinite;
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @keyframes cardGlow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .card-title {
+            font-size: 24px;
+            color: #ff0044;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 15px #ff0044;
+        }
+
+        .card-content {
+            font-family: 'Rajdhani', monospace;
+            color: #00ff88;
+            font-size: 16px;
+            line-height: 2;
+        }
+
+        .highlight {
+            color: #ffff00;
+            font-weight: 700;
+            text-shadow: 0 0 10px #ffff00;
+        }
+
+        /* Access Code Display */
+        .code-display {
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid #00ff88;
+            padding: 30px;
+            margin-top: 25px;
+            text-align: center;
+            animation: borderGlow 2s linear infinite;
+            border-radius: 15px;
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.5);
+        }
+
+        .code-value {
+            font-size: 36px;
+            color: #00ff88;
+            font-weight: 700;
+            letter-spacing: 8px;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 20px #00ff88;
+            animation: codePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes codePulse {
+            0%, 100% { transform: scale(1); text-shadow: 0 0 20px #00ff88; }
+            50% { transform: scale(1.05); text-shadow: 0 0 30px #00ff88, 0 0 40px #00ff88; }
+        }
+
+        .code-expiry {
+            color: #ff0044;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 3px;
+        }
+
+        /* Messages */
+        .error-message, .success-message {
+            display: none;
+            text-align: center;
+            margin-top: 25px;
+            font-size: 16px;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        .error-message.active {
+            display: block;
+            background: rgba(255, 0, 68, 0.2);
+            color: #ff0044;
+            border: 2px solid #ff0044;
+            animation: shake 0.5s;
+        }
+
+        .success-message.active {
+            display: block;
+            background: rgba(0, 255, 136, 0.2);
+            color: #00ff88;
+            border: 2px solid #00ff88;
+            animation: successPulse 2s infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-15px); }
+            75% { transform: translateX(15px); }
+        }
+
+        @keyframes successPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.02); }
+        }
+
+        /* Loading */
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255, 0, 68, 0.2);
+            border-top: 5px solid #ff0044;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            box-shadow: 0 0 20px #ff0044;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: #ff0044;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 700;
+            animation: typing 1.5s infinite;
+            letter-spacing: 3px;
+        }
+
+        @keyframes typing {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 0, 68, 0.3);
+        }
+
+        .footer-text {
+            color: rgba(255, 0, 68, 0.8);
+            font-size: 12px;
+            font-family: 'Rajdhani', monospace;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .footer-brand {
+            color: #00ff88;
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 10px;
+            letter-spacing: 8px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 60px;
+                letter-spacing: 8px;
+            }
+
+            .subtitle {
+                font-size: 12px;
+                letter-spacing: 8px;
+            }
+
+            .login-box {
+                padding: 30px 25px;
+                border-radius: 15px;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .dashboard-title {
+                font-size: 24px;
+                letter-spacing: 4px;
+            }
+
+            .code-value {
+                font-size: 24px;
+                letter-spacing: 4px;
+            }
+        }
+
+        /* Neon Text Effect */
+        .neon-text {
+            color: #00ff88;
+            text-shadow: 
+                0 0 5px #00ff88,
+                0 0 10px #00ff88,
+                0 0 20px #00ff88,
+                0 0 40px #00ff88,
+                0 0 80px #00ff88;
+        }
+
+        /* Floating Animation for Login Box */
+        @keyframes floatBox {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-5px) rotate(1deg); }
+            75% { transform: translateY(5px) rotate(-1deg); }
+        }
+
+        .login-box {
+            animation: floatBox 6s ease-in-out infinite, boxPulse 4s ease-in-out infinite;
+        }
+
+        /* Audio Visualizer Effect */
+        .audio-bars {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            z-index: 5;
+            opacity: 0.3;
+        }
+
+        .audio-bar {
+            width: 8px;
+            background: linear-gradient(to top, #ff0044, #00ff88);
+            border-radius: 4px;
+            animation: audioWave 1s ease-in-out infinite;
+        }
+
+        @keyframes audioWave {
+            0%, 100% { height: 10px; }
+            50% { height: 40px; }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Matrix Rain Canvas -->
+    <canvas id="matrix-rain"></canvas>
+    
+    <!-- Cyber Lines Background -->
+    <div class="cyber-lines"></div>
+
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Audio Visualizer -->
+    <div class="audio-bars" id="audio-bars"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Login Section -->
+        <div id="login-section">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="logo">ＫＮＡＴＲＩ</h1>
+                <p class="subtitle">🎮 HACKER SYSTEM 🎮</p>
+                <p class="tagline">[ مستقبل الأرقام الرقمية ]</p>
+            </div>
+
+            <!-- Login Box -->
+            <div class="login-box">
+                <!-- Corner Decorations -->
+                <div class="corner corner-tl"></div>
+                <div class="corner corner-tr"></div>
+                <div class="corner corner-bl"></div>
+                <div class="corner corner-br"></div>
+
+                <!-- Input Field -->
+                <div class="input-group">
+                    <label class="input-label">>> كود الدخول السري</label>
+                    <input type="text" class="input-field" id="access-code" placeholder="أدخل الكود هنا" autocomplete="off">
+                </div>
+
+                <!-- Submit Button -->
+                <button class="submit-btn" onclick="verifyCode()">
+                    🎮 دخول نظام KNATRI
+                </button>
+
+                <!-- Loading -->
+                <div class="loading" id="loading">
+                    <div class="loading-spinner"></div>
+                    <p class="loading-text">جاري التحقق...</p>
+                </div>
+
+                <!-- Error Message -->
+                <div class="error-message" id="error-message">
+                    ❌ الكود غير صحيح أو منتهي الصلاحية! ⚠️
+                </div>
+
+                <!-- Success Message -->
+                <div class="success-message" id="success-message">
+                    ✅ تم التحقق بنجاح! مرحباً في نظام KNATRI! 🎉
+                </div>
+
+                <!-- Stats -->
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="total-codes">1,000</div>
+                        <div class="stat-label">كود متاح</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="active-codes">985</div>
+                        <div class="stat-label">نشط</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="expired-codes">15</div>
+                        <div class="stat-label">منتهي</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="footer-text">
+                    🔒 نظام آمن ومشفر 🔒 | 🚀 تقنية متطورة 🚀 | 💀 قوة هكر 💀
+                </div>
+                <div class="footer-brand">ＫＮＡＴＲＩ</div>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard-section" class="dashboard">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <h2 class="dashboard-title">🎮 ＫＮＡＴＲＩ لـوحة التحكم</h2>
+                <button class="logout-btn" onclick="logout()">🚪 خروج آمن</button>
+            </div>
+
+            <!-- Welcome Card -->
+            <div class="dashboard-card">
+                <h3 class="card-title">🎉 مرحباً في نظام KNATRI</h3>
+                <div class="card-content">
+                    <p>✅ <span class="highlight">تم التحقق من هويتك بنجاح</span></p>
+                    <p>🛡️ صلاحياتك: <span class="highlight">كاملة</span></p>
+                    <p>🔐 مستوى الأمان: <span class="highlight">أقصى</span></p>
+                    <p>🌐 حالة الاتصال: <span class="highlight">آمن</span></p>
+                    <p>🎮 نظام KNATRI: <span class="highlight">نشط</span></p>
+                </div>
+            </div>
+
+            <!-- Access Code Card -->
+            <div class="dashboard-card">
+                <h3 class="card-title">🔑 كود الوصول الشخصي</h3>
+                <div class="code-display">
+                    <div class="code-value" id="personal-code">KNATRI-XXXX-XXXX</div>
+                    <p class="code-expiry">⏰ صالح لـ 24 ساعة من الآن</p>
+                </div>
+            </div>
+
+            <!-- System Stats Card -->
+            <div class="dashboard-card">
+                <h3 class="card-title">📊 إحصائيات النظام</h3>
+                <div class="card-content">
+                    <p>👥 المستخدمين النشطين: <span class="highlight">12,456</span></p>
+                    <p>🎫 الكودات المولدة: <span class="highlight">1,000,000+</span></p>
+                    <p>🚀 عمليات الدخول: <span class="highlight">892,341</span></p>
+                    <p>💯 معدل الأمان: <span class="highlight">99.99%</span></p>
+                    <p>⚡ سرعة المعالجة: <span class="highlight">فائقة السرعة</span></p>
+                </div>
+            </div>
+
+            <!-- Security Info Card -->
+            <div class="dashboard-card">
+                <h3 class="card-title">🛡️ معلومات الأمان</h3>
+                <div class="card-content">
+                    <p>🔒 التشفير: <span class="highlight">AES-512</span></p>
+                    <p>🌐 البروتوكول: <span class="highlight">KNATRI-Secure v4.0</span></p>
+                    <p>🛡️ الحماية: <span class="highlight">متقدمة متعددة الطبقات</span></p>
+                    <p>🔥 حالة الجدار الناري: <span class="highlight">نشط</span></p>
+                    <p>🎮 نظام المراقبة: <span class="highlight">فوري</span></p>
+                </div>
+            </div>
+
+            <!-- Achievement Card -->
+            <div class="dashboard-card">
+                <h3 class="card-title">🏆 الإنجازات</h3>
+                <div class="card-content">
+                    <p>🥇 المستوى: <span class="highlight">أسطوري</span></p>
+                    <p>⚡ النقاط: <span class="highlight">∞ لانهائية</span></p>
+                    <p>🎯 الهدف: <span class="highlight">اتمكت!</span></p>
+                    <p>🌟 المميزات: <span class="highlight">غير محدودة</span></p>
+                    <p>💎 الحالة: <span class="highlight">VIP إعلائية</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Code System
+        const TOTAL_CODES = 1000;
+        let codes = [];
+        let usedCodes = new Set();
+        let currentUser = null;
+
+        // Generate Codes
+        function generateCodes() {
+            const prefix = 'KNATRI';
+            for (let i = 0; i < TOTAL_CODES; i++) {
+                const segment1 = Math.random().toString(36).substring(2, 6).toUpperCase();
+                const segment2 = Math.random().toString(36).substring(2, 6).toUpperCase();
+                const code = `${prefix}-${segment1}-${segment2}`;
+                codes.push({
+                    code: code,
+                    createdAt: null,
+                    expiresAt: null,
+                    used: false,
+                    userId: null
+                });
+            }
+            console.log('🎮 Generated', TOTAL_CODES, 'KNATRI codes');
+        }
+
+        // Verify Code
+        function verifyCode() {
+            const inputCode = document.getElementById('access-code').value.trim().toUpperCase();
+            const loading = document.getElementById('loading');
+            const errorMsg = document.getElementById('error-message');
+            const successMsg = document.getElementById('success-message');
+
+            // Reset messages
+            errorMsg.classList.remove('active');
+            successMsg.classList.remove('active');
+            loading.classList.add('active');
+
+            // Simulate verification delay with visual effects
+            setTimeout(() => {
+                let validCode = null;
+
+                // Find matching code
+                for (let i = 0; i < codes.length; i++) {
+                    if (codes[i].code === inputCode && !codes[i].used) {
+                        // Check if code is expired
+                        if (!codes[i].expiresAt || new Date(codes[i].expiresAt) > new Date()) {
+                            validCode = codes[i];
+                            break;
+                        }
+                    }
+                }
+
+                loading.classList.remove('active');
+
+                if (validCode) {
+                    // Mark code as used
+                    validCode.used = true;
+                    validCode.userId = Math.random().toString(36).substring(7);
+                    const now = new Date();
+                    validCode.expiresAt = new Date(now.getTime() + 24 * 60 * 60 * 1000); // 24 hours
+
+                    currentUser = validCode;
+                    successMsg.classList.add('active');
+
+                    // Play success sound
+                    playSuccessSound();
+
+                    // Update dashboard
+                    updateDashboard();
+
+                    // Show dashboard
+                    setTimeout(() => {
+                        document.getElementById('login-section').style.display = 'none';
+                        document.getElementById('dashboard-section').classList.add('active');
+                    }, 1500);
+
+                    // Update stats
+                    updateStats();
+
+                } else {
+                    errorMsg.classList.add('active');
+                    playErrorSound();
+                    
+                    // Shake effect on input
+                    const inputField = document.getElementById('access-code');
+                    inputField.style.animation = 'shake 0.5s';
+                    setTimeout(() => inputField.style.animation = '', 500);
+                }
+            }, 2000);
+        }
+
+        // Update Dashboard
+        function updateDashboard() {
+            if (currentUser) {
+                // Set personal code
+                document.getElementById('personal-code').textContent = currentUser.code;
+            }
+        }
+
+        // Update Stats
+        function updateStats() {
+            const used = codes.filter(c => c.used).length;
+            const expired = codes.filter(c => c.used && c.expiresAt && new Date(c.expiresAt) <= new Date()).length;
+            const active = used - expired;
+
+            document.getElementById('total-codes').textContent = TOTAL_CODES.toLocaleString();
+            document.getElementById('active-codes').textContent = active.toLocaleString();
+            document.getElementById('expired-codes').textContent = expired.toLocaleString();
+        }
+
+        // Logout
+        function logout() {
+            currentUser = null;
+            document.getElementById('dashboard-section').classList.remove('active');
+            document.getElementById('login-section').style.display = 'flex';
+            document.getElementById('access-code').value = '';
+            document.getElementById('success-message').classList.remove('active');
+            document.getElementById('error-message').classList.remove('active');
+        }
+
+        // Matrix Rain Effect
+        function initMatrixRain() {
+            const canvas = document.getElementById('matrix-rain');
+            const ctx = canvas.getContext('2d');
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const characters = '01ＫＮＡＴＲＩ🎮💀🔥⚡🌟💎';
+            const fontSize = 16;
+            const columns = canvas.width / fontSize;
+            const drops = [];
+
+            for (let i = 0; i < columns; i++) {
+                drops[i] = 1;
+            }
+
+            function draw() {
+                ctx.fillStyle = 'rgba(10, 10, 20, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = '#ff0044';
+                ctx.font = fontSize + 'px monospace';
+
+                for (let i = 0; i < drops.length; i++) {
+                    const text = characters[Math.floor(Math.random() * characters.length)];
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    drops[i]++;
+                }
+            }
+
+            setInterval(draw, 33);
+
+            // Resize handler
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+
+        // Create Particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = 15 + Math.random() * 10 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Create Audio Bars
+        function createAudioBars() {
+            const audioBars = document.getElementById('audio-bars');
+            const barCount = 40;
+
+            for (let i = 0; i < barCount; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'audio-bar';
+                bar.style.animationDelay = Math.random() * 1 + 's';
+                bar.style.height = 10 + Math.random() * 30 + 'px';
+                audioBars.appendChild(bar);
+            }
+        }
+
+        // Play Success Sound
+        function playSuccessSound() {
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            
+            const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+            notes.forEach((freq, index) => {
+                setTimeout(() => {
+                    const oscillator = audioCtx.createOscillator();
+                    const gainNode = audioCtx.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioCtx.destination);
+                    
+                    oscillator.frequency.value = freq;
+                    oscillator.type = 'sine';
+                    gainNode.gain.value = 0.15;
+                    
+                    oscillator.start();
+                    gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.2);
+                    oscillator.stop(audioCtx.currentTime + 0.2);
+                }, index * 200);
+            });
+        }
+
+        // Play Error Sound
+        function playErrorSound() {
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            oscillator.frequency.value = 200;
+            oscillator.type = 'sawtooth';
+            gainNode.gain.value = 0.1;
+            
+            oscillator.start();
+            gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.5);
+            oscillator.stop(audioCtx.currentTime + 0.5);
+        }
+
+        // Init System
+        document.addEventListener('DOMContentLoaded', () => {
+            generateCodes();
+            initMatrixRain();
+            createParticles();
+            createAudioBars();
+
+            // Enter key support
+            document.getElementById('access-code').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    verifyCode();
+                }
+            });
+
+            // Add click sound to button
+            document.querySelector('.submit-btn').addEventListener('click', function() {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                
+                oscillator.frequency.value = 800;
+                oscillator.type = 'square';
+                gainNode.gain.value = 0.05;
+                
+                oscillator.start();
+                gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.1);
+                oscillator.stop(audioCtx.currentTime + 0.1);
+            });
+        });
+
+        // Periodic time update
+        setInterval(() => {
+            if (currentUser) {
+                updateDashboard();
+            }
+        }, 60000); // Update every minute
+    </script>
+</body>
+</html>

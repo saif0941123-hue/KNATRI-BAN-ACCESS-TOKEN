@@ -1,0 +1,31 @@
+ * Serving Flask app 'server'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8081
+ * Running on http://172.26.16.101:8081
+Press CTRL+C to quit
+127.0.0.1 - - [10/Aug/2026 12:02:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:02:23] "GET /?password=4c13d5c7-3bc4-4636-be25-139255ecaaa9 HTTP/1.1" 200 -
+172.26.0.1 - - [10/Aug/2026 12:02:24] "GET /?_gl=1*10ay9pa*_gcl_au*MTU1MTQ1NjcxMS4xNzg2MzYyNDAy*_ga*MjU3NDA0OTM4LjE3ODYzNjI0MDA.*_ga_8NW18Q4WF2*czE3ODYzNjI0MDEkbzEkZzEkdDE3ODYzNjMxODYkajQ2JGwwJGgzOTA3NjY4NTA.&password=4c13d5c7-3bc4-4636-be25-139255ecaaa9 HTTP/1.1" 200 -
+172.26.0.1 - - [10/Aug/2026 12:02:25] "GET /static/style.css HTTP/1.1" 200 -
+172.26.0.1 - - [10/Aug/2026 12:02:27] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [10/Aug/2026 12:03:02] "GET /?password=4c13d5c7-3bc4-4636-be25-139255ecaaa9 HTTP/1.1" 200 -
+172.26.0.1 - - [10/Aug/2026 12:03:03] "GET /?_gl=1*7ixggh*_gcl_au*MTU1MTQ1NjcxMS4xNzg2MzYyNDAy*_ga*MjU3NDA0OTM4LjE3ODYzNjI0MDA.*_ga_8NW18Q4WF2*czE3ODYzNjI0MDEkbzEkZzEkdDE3ODYzNjMxODYkajQ2JGwwJGgzOTA3NjY4NTA.&password=4c13d5c7-3bc4-4636-be25-139255ecaaa9 HTTP/1.1" 200 -
+172.26.0.1 - - [10/Aug/2026 12:03:04] "GET /static/style.css HTTP/1.1" 200 -
+172.26.0.1 - - [10/Aug/2026 12:03:06] "GET /favicon.ico HTTP/1.1" 404 -
+172.26.0.1 - - [10/Aug/2026 12:03:14] "POST /api/validate HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:04:04] "GET /?password=4c13d5c7-3bc4-4636-be25-139255ecaaa9 HTTP/1.1" 200 -
+172.26.0.1 - - [10/Aug/2026 12:04:05] "GET /?_gl=1*qs4h1a*_gcl_au*MTU1MTQ1NjcxMS4xNzg2MzYyNDAy*_ga*MjU3NDA0OTM4LjE3ODYzNjI0MDA.*_ga_8NW18Q4WF2*czE3ODYzNjI0MDEkbzEkZzEkdDE3ODYzNjMxODYkajQ2JGwwJGgzOTA3NjY4NTA.&password=4c13d5c7-3bc4-4636-be25-139255ecaaa9 HTTP/1.1" 200 -
+172.26.0.1 - - [10/Aug/2026 12:04:07] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:04:16] "GET /?password=4c13d5c7-3bc4-4636-be25-139255ecaaa9 HTTP/1.1" 200 -
+172.26.0.1 - - [10/Aug/2026 12:04:17] "GET /?hideControls=true&password=4c13d5c7-3bc4-4636-be25-139255ecaaa9 HTTP/1.1" 200 -
+172.26.0.1 - - [10/Aug/2026 12:04:19] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:04:19] "GET /?password=4c13d5c7-3bc4-4636-be25-139255ecaaa9 HTTP/1.1" 200 -
+172.26.0.1 - - [10/Aug/2026 12:04:19] "GET /?hideControls=true&password=4c13d5c7-3bc4-4636-be25-139255ecaaa9 HTTP/1.1" 200 -
+172.26.0.1 - - [10/Aug/2026 12:04:21] "GET /static/style.css HTTP/1.1" 200 -
+172.26.0.1 - - [10/Aug/2026 12:04:29] "POST /api/validate HTTP/1.1" 200 -
+172.26.0.1 - - [10/Aug/2026 12:04:45] "POST /api/execute HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:06:31] "GET /?password=4c13d5c7-3bc4-4636-be25-139255ecaaa9 HTTP/1.1" 200 -
+172.26.0.1 - - [10/Aug/2026 12:06:32] "GET /?hideControls=true&password=4c13d5c7-3bc4-4636-be25-139255ecaaa9 HTTP/1.1" 200 -
+172.26.0.1 - - [10/Aug/2026 12:06:38] "GET /static/style.css HTTP/1.1" 200 -
