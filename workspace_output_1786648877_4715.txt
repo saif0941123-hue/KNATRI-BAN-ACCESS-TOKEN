@@ -1,0 +1,19 @@
+/workspace
+total 112
+drwxr-xr-x  6 user user  4096 Aug 13 19:21 .
+drwxr-xr-x 20 root root  4096 Jun 22 03:39 ..
+drwxr-xr-x  4 user user  4096 Jun 19 10:20 .agent_hooks
+drwxr-xr-x 10 root root  4096 Aug 13 19:21 .browser_data
+drwxr-xr-x  3 root root  4096 Jun 22 03:37 .psiphon_data
+-rw-r--r--  1 root root 10843 Aug 13 19:20 BIND__xhama.py
+-rw-r--r--  1 root root  3683 Aug 13 19:20 MajoRLogin_pb2.py
+-rw-r--r--  1 root root  2510 Aug 13 19:20 MajorLoginRes_pb2.py
+-rw-r--r--  1 root root    41 Aug 13 19:20 __init__.py
+-rw-r--r--  1 root root 15141 Aug 13 19:20 app.py
+-rw-r--r--  1 root root  8452 Aug 13 19:20 index.html
+drwxr-xr-x  2 root root  4096 Aug 13 19:21 outputs
+-rw-r--r--  1 root root    65 Aug 13 19:20 requirements.txt
+-rw-r--r--  1 root root  3012 Aug 13 19:20 server.log
+-rw-r--r--  1 root root 12334 Aug 13 19:20 server.py
+-rw-r--r--  1 root root  7092 Aug 13 19:20 style.css
+-rw-r--r--  1 root root   887 Aug 13 19:20 todo.md

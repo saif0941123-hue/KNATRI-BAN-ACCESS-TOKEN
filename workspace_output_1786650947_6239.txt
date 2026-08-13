@@ -1,0 +1,11 @@
+        return "<html><body><h1>KHATRI System Loading...</h1></body></html>"
+
+@app.route('/')
+def index():
+    """الصفحة الرئيسية"""
+    return render_template_string(HTML_TEMPLATE)
+
+@app.route('/api/verify-code', methods=['POST'])
+def verify_code():
+    """التحقق من الكود"""
+    data = request.json

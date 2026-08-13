@@ -1,0 +1,5 @@
+def index():
+    """الصفحة الرئيسية"""
+    return render_template_string(HTML_TEMPLATE)
+
+@app.route('/api/verify-code', methods=['POST'])

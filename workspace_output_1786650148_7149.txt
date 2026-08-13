@@ -1,0 +1,28 @@
+✅ تم حفظ 1000 كود بنجاح في cyber_codes.json
+
+╔═══════════════════════════════════════════════════════════╗
+║                                                           ║
+║       💀 Cyber Elite Server v9.0 💀                      ║
+║                                                           ║
+║           خادم واجهة حصن الهكر                          ║
+║              Hacker Fortress Interface Server              ║
+║                                                           ║
+╚═══════════════════════════════════════════════════════════╝
+
+🚀 الخادم جاهز للعمل...
+📡 الرابط: http://0.0.0.0:8000
+🔒 الأمان: أقصى مستوى
+💾 قاعدة البيانات: جاهزة
+📊 نظام الإحصائيات: نشط
+
+
+ * Serving Flask app 'hacker_server'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://172.21.223.175:8000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 767-291-566
